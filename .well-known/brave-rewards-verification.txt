@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: havocesp.github.io
+Token: 1c99041340930f54df3f9d372aa353f35a4fcabbce6bc350d9b26d0207e8e05b
