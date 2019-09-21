@@ -1,10 +1,11 @@
 <html>
 <head>
   <title>Mi IP</title>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 </head>
 <body>
   <script type="text/javascript">
+    var data = null;
     $(document).ready(function () {
 
       $.getJSON('https://ipinfo.io/json', function(data) {
@@ -20,19 +21,24 @@
             "org": "AS3758 SingNet"
           }
         */
-        var data = JSON.stringify(data, null, 2);
-        console.log(data);
-        document.write(data["ip"]);
-        if (data["hostname"] != "No Hostname") {
-          document.write(data["hostname"]);
-        }
-        document.write(data["city"]);
-        document.write(data["country"]);
-        document.write(data["loc"]);        
-        document.write(data["org"]);
+        data = JSON.stringify(data, null, 2);
+//         console.log(data);
+        console.log(data.ip);
+//         document.write(data.ip);
+//         if (data.hostname != "No Hostname") {
+//           document.write(data.hostname);
+//         }
+//         document.write(data.city);
+//         document.write(data.country);
+//         document.write(data.loc);        
+//         document.write(data.org);
       });
     });
   </script>
-
+  <div>
+    <p>
+      <strong>IP: </strong><script>document.write(data.ip);</script>
+    </p>
+  </div>
 </body>
 </html>
