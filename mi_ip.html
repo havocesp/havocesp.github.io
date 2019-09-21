@@ -4,15 +4,30 @@
 </head>
 <body>
   <script type="text/javascript">
-    $(document).ready(
-        function() { 
-            $.getJSON( "http://smart-ip.net/geoip-json?callback=?", 
-                function(data){
-                    alert(data.host);
-                }
-            );
+    $.getJSON('https://ipinfo.io/json', function(data) {
+      /* 
+      Response example:
+        {
+          "ip": "116.12.250.1",
+          "hostname": "No Hostname",
+          "city": "Singapore",
+          "region": "Central Singapore Community Development Council",
+          "country": "SG",
+          "loc": "1.2931,103.8558",
+          "org": "AS3758 SingNet"
         }
-    );
+      */
+      var data = JSON.stringify(data, null, 2);
+      console.log(data);
+      document.write(data["ip"]);
+      if (data["hostname"] != "No Hostname") {
+        document.write(data["hostname"]);
+      }
+      document.write(data["city"]);
+      document.write(data["country"]);
+      document.write(data["loc"]);
+      document.write(data["org"]);
+    });
   </script>
 <script type="text/javascript" src="jquery.min.js"></script>
 </body>
