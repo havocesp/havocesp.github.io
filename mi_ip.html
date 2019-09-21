@@ -1,10 +1,20 @@
 <html>
 <head>
-<title>Mi IP</title>
+  <title>Mi IP</title>
 </head>
 <body>
   <script type="text/javascript">
-    var ipaddress = "<?php echo $_SERVER['REMOTE_ADDR']; ?>";
+    $(document).ready(
+        function() { 
+            $.getJSON( "http://smart-ip.net/geoip-json?callback=?", 
+                function(data){
+                    alert(data.host);
+                }
+            );
+        }
+    );
   </script>
+
+  <script type="text/javascript" src="jquery.min.js"></script>
 </body>
 </html>
